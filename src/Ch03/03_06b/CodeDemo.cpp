@@ -5,9 +5,17 @@
 #include <iostream>
 #include <cstdint>
 
+// Find and replace directives for constants that are run in preprocessing
+#define MAX_AMMO 500
+
 int main(){
-    int32_t ammo = 100;
+    int32_t ammo = MAX_AMMO / 5;
     uint8_t health_items = 5;
+
+// If the DEBUG macro is defined, run this block of code.
+#ifdef DEBUG
+    std::cout << "[DEBUG] Starting game simulation..." << std::endl;
+#endif
 
     ammo += 200; // Player finds extra ammo
     health_items -= 2; // Player uses some health items
